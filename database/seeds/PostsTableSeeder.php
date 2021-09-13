@@ -14,9 +14,9 @@ class PostsTableSeeder extends Seeder
 
             $postObject = new Post();
             $postObject->title = $faker->sentence(6);  
-            $postObject->author = $faker->words(3, true);
+            $postObject->author = $faker->words(2, true);
             $postObject->author_id = $faker->randomNumber(6, false);
-            $postObject->body = $faker->paragraphs(5, true);
+            $postObject->body = $faker->paragraphs(10, true);
             $postObject->save();
         }
 

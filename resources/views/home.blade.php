@@ -22,9 +22,11 @@
 
     <div class="posts">
         @foreach($allPosts as $post)
-            <h2>{{ $post->title }}</h2>
-            <div>by {{ $post->author }}</div>
-            <p>{{ $post->body }}</p>
+            <div class="post">
+                <h2>{{ $post->title }}</h2>
+                <div class="author">by {{ $post->author }}</div>
+                <p>{{ $post->body }}</p>
+            </div>
         @endforeach
     </div>
 </div>

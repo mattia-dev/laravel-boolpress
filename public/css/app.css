@@ -10942,3 +10942,20 @@ a.text-dark:focus {
   }
 }
 
+.posts {
+  margin-top: 24px;
+}
+
+.posts .post {
+  margin-bottom: 36px;
+}
+
+.posts .post .author {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.posts .post p {
+  margin-top: 6px;
+}
+

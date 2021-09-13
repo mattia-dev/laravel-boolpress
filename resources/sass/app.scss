@@ -6,3 +6,20 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.posts {
+    margin-top: 24px;
+
+    .post {
+        margin-bottom: 36px;
+
+        .author {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        p {
+            margin-top: 6px;
+        }
+    }
+}
