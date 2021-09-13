@@ -16,6 +16,7 @@ class PostsTableSeeder extends Seeder
             $postObject->title = $faker->sentence(6);  
             $postObject->author = $faker->words(2, true);
             $postObject->author_id = $faker->randomNumber(6, false);
+            $postObject->post_image = $faker->imageUrl(360, 360, 'animals', true);
             $postObject->body = $faker->paragraphs(10, true);
             $postObject->save();
         }

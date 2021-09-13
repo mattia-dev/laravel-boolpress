@@ -26,6 +26,7 @@
                 <h2>{{ $post->title }}</h2>
                 <div class="author">by {{ $post->author }}</div>
                 <p>{{ $post->body }}</p>
+                <img src="{{ $post->post_image }}" alt="post image">
             </div>
         @endforeach
     </div>
