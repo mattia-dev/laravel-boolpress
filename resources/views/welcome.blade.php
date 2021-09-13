@@ -1,3 +1,14 @@
+<!-- Ciao ragazzi, creiamo con Laravel la nostra alternativa al più famoso CMS del modo: WordPress.
+Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere.
+Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina.
+In particolare:
+iniziare un nuovo progetto
+collegare database e creare migration della tabella posts
+creare modello Post
+creare un seeders per 50 posts
+attivare l’autenticazione secondo i comandi qui sopra.
+Bonus.
+Iniziate nella home page a “stilare” il vostro template con la lista dei post, lavorate con scss. ( Post::all() ) -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
