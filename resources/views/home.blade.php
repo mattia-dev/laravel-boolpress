@@ -24,9 +24,14 @@
         @foreach($allPosts as $post)
             <div class="post">
                 <h2>{{ $post->title }}</h2>
+
                 <div class="author">by {{ $post->author }}</div>
-                <p>{{ $post->body }}</p>
-                <img src="{{ $post->post_image }}" alt="post image">
+
+                <div class="post-content">
+                    <img src="{{ $post->post_image }}" alt="post image">
+
+                    <p>{{ $post->body }} </p>
+                </div>
             </div>
         @endforeach
     </div>

@@ -10950,12 +10950,30 @@ a.text-dark:focus {
   margin-bottom: 36px;
 }
 
+.posts .post h2 {
+  font-size: 30px;
+}
+
 .posts .post .author {
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
 }
 
-.posts .post p {
+.posts .post .post-content {
   margin-top: 6px;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.posts .post .post-content p {
+  text-align: justify;
+  font-size: 18px;
+}
+
+.posts .post .post-content img {
+  float: right;
+  display: inline;
+  margin-left: 12px;
 }
 
