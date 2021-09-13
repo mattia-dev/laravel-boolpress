@@ -19,5 +19,13 @@
             </div>
         </div>
     </div>
+
+    <div class="posts">
+        @foreach($allPosts as $post)
+            <h2>{{ $post->title }}</h2>
+            <div>by {{ $post->author }}</div>
+            <p>{{ $post->body }}</p>
+        @endforeach
+    </div>
 </div>
 @endsection
