@@ -12332,8 +12332,65 @@ a.text-dark:focus {
   }
 }
 
-img {
+.post-container .banner {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 6px;
+}
+
+.post-container .premium {
+  font-size: 18px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.post-container h1 {
+  color: #212529;
+}
+
+.post-container i {
+  margin-right: 6px;
+}
+
+.post-container .author {
+  font-size: 16px;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.post-container .post-details {
+  margin: 12px 0 24px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.post-container .post-body img {
+  margin-left: 12px;
   width: 500px;
-  height: 320px;
+  height: 330px;
+}
+
+.post-container .post-body p {
+  font-size: 16px;
+  color: #212529;
+  text-align: justify;
+}
+
+.post-container .comment-section {
+  margin-top: 36px;
+}
+
+.post-container .comment-section h3 {
+  color: #212529;
+}
+
+.post-container .comment-section form {
+  margin-top: 12px;
+}
+
+.post-container .comment-section form button {
+  position: relative;
+  left: 100%;
+  transform: translate(-100%, 0);
 }
 
