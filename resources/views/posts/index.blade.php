@@ -25,7 +25,7 @@
                             <td>{{ $post->publish_date }}</td>
                             <td>{{ $post->tags }}</td>
                             <td>{{ $post->premium_content ? "Premium content" : "Free Content" }}</td>
-                            <td><i class="bi bi-box-arrow-up-right"></i></td>
+                            <td><a href="{{ route('posts.show', $post->id) }}"><i class="bi bi-box-arrow-up-right"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>
