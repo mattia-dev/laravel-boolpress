@@ -8,37 +8,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
-.posts {
-    margin-top: 24px;
-
-    .post {
-        margin-bottom: 36px;
-
-        h2 {
-            font-size: 30px;
-        }
-
-        .author {
-            font-size: 20px;
-            font-style: italic;
-        }
-
-        .post-content {
-            margin-top: 6px;
-            content: "";
-            display: table;
-            clear: both;
-
-            p {
-                text-align: justify;
-                font-size: 18px;
-            }
-
-            img {
-                float: right;
-                display: inline;
-                margin-left: 12px;
-            }
-        }
-    }
+img {
+    width: 500px;
+    height: 320px;
 }

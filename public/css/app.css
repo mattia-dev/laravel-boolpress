@@ -12332,38 +12332,8 @@ a.text-dark:focus {
   }
 }
 
-.posts {
-  margin-top: 24px;
-}
-
-.posts .post {
-  margin-bottom: 36px;
-}
-
-.posts .post h2 {
-  font-size: 30px;
-}
-
-.posts .post .author {
-  font-size: 20px;
-  font-style: italic;
-}
-
-.posts .post .post-content {
-  margin-top: 6px;
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.posts .post .post-content p {
-  text-align: justify;
-  font-size: 18px;
-}
-
-.posts .post .post-content img {
-  float: right;
-  display: inline;
-  margin-left: 12px;
+img {
+  width: 500px;
+  height: 320px;
 }
 
