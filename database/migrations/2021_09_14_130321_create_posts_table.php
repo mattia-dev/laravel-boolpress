@@ -13,8 +13,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->integer('author_id');
+            $table->dateTime('publish_date');
+            $table->text('image');
             $table->text('body');
+            $table->string('tags');
+            $table->unsignedBigInteger('views');
+            $table->boolean('premium_content');
             $table->timestamps();
         });
     }

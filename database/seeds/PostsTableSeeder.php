@@ -15,9 +15,12 @@ class PostsTableSeeder extends Seeder
             $postObject = new Post();
             $postObject->title = $faker->sentence(6);  
             $postObject->author = $faker->words(2, true);
-            $postObject->author_id = $faker->randomNumber(6, false);
-            $postObject->post_image = $faker->imageUrl(360, 360, 'animals', true);
-            $postObject->body = $faker->paragraphs(10, true);
+            $postObject->publish_date = $faker->dateTime();
+            $postObject->image = $faker->imageUrl(360, 360, 'movies', true);
+            $postObject->body = $faker->paragraphs(12, true);
+            $postObject->tags = $faker->words(3, true);
+            $postObject->views = $faker->randomNumber(5, false);
+            $postObject->premium_content = $faker->boolean();
             $postObject->save();
         }
 
