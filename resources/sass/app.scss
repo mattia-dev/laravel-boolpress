@@ -9,6 +9,49 @@
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
 
+a.create-post {
+    font-size: 26px;
+    color: #6cb2eb;
+    transition: .25s;
+
+    i {
+        margin-right: 12px;
+        color: #6cb2eb;
+        transition: .25s;
+    }
+
+    &:hover, &:hover i {
+        color: #2176bd;
+        text-decoration: none;
+    }
+}
+
+table {
+    margin-top: 24px;
+
+    thead {
+        background-color: #c0ddf6;
+
+        th {
+            border-bottom: 2px solid #a5ddf6 !important;
+        }
+    }
+
+    th, td {
+        border-top: 1px solid #a5ddf6 !important;
+    }
+
+    tbody {
+        tr {
+            transition: .25s;
+
+            &:hover {
+                background-color: #d6e9f9;
+            }
+        }
+    }
+}
+
 .post-container {
     .banner {
         width: 100%;
@@ -28,6 +71,7 @@
 
     i {
         margin-right: 6px;
+        color: #6cb2eb;
     }
 
     .author {
@@ -56,20 +100,53 @@
         }
     }
 
+    .navigation {
+        a, i {
+            font-size: 18px;
+            color: #6cb2eb;
+            text-decoration: none;
+            transition: .25s;
+
+            &:hover, &:hover i {
+                color: #2176bd;
+            }
+        }
+    }
+
     .comment-section {
         margin-top: 36px;
 
         h3 {
-            color: $gray-900;
+            color: #6cb2eb;
         }
 
         form {
             margin-top: 12px;
 
+            .input-group-text {
+                background-color: #c0ddf6;
+                color: white;
+            }
+
             button {
                 position: relative;
                 left: 100%;
                 transform: translate(-100%, 0);
+            }
+        }
+    }
+}
+
+.create-post-container {
+    form {
+        margin-top: 24px;
+
+        .form-group {
+            font-size: 18px;
+
+            button {
+                float: right;
+                font-size: 16px;
             }
         }
     }

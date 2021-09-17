@@ -2,9 +2,11 @@
 
 @section('content')
     <div class="container">
+        <a class="create-post" href="{{ route('posts.create') }}"><i class="bi bi-file-earmark-plus-fill"></i>Create New Post</a>
+
         <div class="table-responsive">
             <table class="table align-middle">
-                <thead>
+                <thead class="text-white">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
@@ -25,7 +27,13 @@
                             <td>{{ $post->publish_date }}</td>
                             <td>{{ $post->tags }}</td>
                             <td>{{ $post->premium_content ? "Premium content" : "Free Content" }}</td>
-                            <td><a href="{{ route('posts.show', $post->id) }}"><i class="bi bi-box-arrow-up-right"></i></a></td>
+                            <td>
+                                <form action="{{ route('posts.show', $post->id) }}">
+                                    <button type="submit" class="btn btn-outline-primary">
+                                        <i class="bi bi-box-arrow-up-right"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

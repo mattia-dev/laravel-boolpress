@@ -12332,6 +12332,49 @@ a.text-dark:focus {
   }
 }
 
+a.create-post {
+  font-size: 26px;
+  color: #6cb2eb;
+  transition: 0.25s;
+}
+
+a.create-post i {
+  margin-right: 12px;
+  color: #6cb2eb;
+  transition: 0.25s;
+}
+
+a.create-post:hover,
+a.create-post:hover i {
+  color: #2176bd;
+  text-decoration: none;
+}
+
+table {
+  margin-top: 24px;
+}
+
+table thead {
+  background-color: #c0ddf6;
+}
+
+table thead th {
+  border-bottom: 2px solid #a5ddf6 !important;
+}
+
+table th,
+table td {
+  border-top: 1px solid #a5ddf6 !important;
+}
+
+table tbody tr {
+  transition: 0.25s;
+}
+
+table tbody tr:hover {
+  background-color: #d6e9f9;
+}
+
 .post-container .banner {
   width: 100%;
   height: 200px;
@@ -12350,6 +12393,7 @@ a.text-dark:focus {
 
 .post-container i {
   margin-right: 6px;
+  color: #6cb2eb;
 }
 
 .post-container .author {
@@ -12376,21 +12420,54 @@ a.text-dark:focus {
   text-align: justify;
 }
 
+.post-container .navigation a,
+.post-container .navigation i {
+  font-size: 18px;
+  color: #6cb2eb;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.post-container .navigation a:hover,
+.post-container .navigation a:hover i,
+.post-container .navigation i:hover,
+.post-container .navigation i:hover i {
+  color: #2176bd;
+}
+
 .post-container .comment-section {
   margin-top: 36px;
 }
 
 .post-container .comment-section h3 {
-  color: #212529;
+  color: #6cb2eb;
 }
 
 .post-container .comment-section form {
   margin-top: 12px;
 }
 
+.post-container .comment-section form .input-group-text {
+  background-color: #c0ddf6;
+  color: white;
+}
+
 .post-container .comment-section form button {
   position: relative;
   left: 100%;
   transform: translate(-100%, 0);
+}
+
+.create-post-container form {
+  margin-top: 24px;
+}
+
+.create-post-container form .form-group {
+  font-size: 18px;
+}
+
+.create-post-container form .form-group button {
+  float: right;
+  font-size: 16px;
 }
 

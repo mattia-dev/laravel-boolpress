@@ -26,12 +26,27 @@
             <p>{{ $post->body }}</p>
         </div>
 
+        <div class="navigation d-flex justify-content-between">        
+            <a class="d-flex" href="{{ route('posts.show', $post->id - 1) }}">
+                <i class="{{ $post->id != 1 ? '' : 'd-none' }} bi bi-caret-left-fill"></i>
+                <div>{{ $post->id != 1 ? "Previous blog post" : "" }}</div>
+            </a>
+        
+            <a class="d-flex" href="{{ route('posts.show', $post->id + 1) }}">
+                <div>{{ $post->id != 100 ? "Next blog post" : "" }}</div>
+                <i class="{{ $post->id != 100 ? '' : 'd-none' }} bi bi-caret-right-fill"></i>
+            </a>
+        </div>
+
         <div class="comment-section">
             <h3>COMMENTS</h3>
 
             <form>
                 <div class="input-group mb-3">
                     <span class="input-group-text">Username</span>
+                    <input type="text" class="form-control">
+
+                    <span class="input-group-text">Email</span>
                     <input type="text" class="form-control">
                 </div>
 
