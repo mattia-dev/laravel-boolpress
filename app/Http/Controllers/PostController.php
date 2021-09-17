@@ -40,7 +40,8 @@ class PostController extends Controller
             'title' => 'required',
             'author' => 'required',
             'image' => 'url',
-            'body'  => 'required'
+            'body'  => 'required',
+            'tags'  => 'required'
         ]);
 
         $data = $request->all();
@@ -61,7 +62,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.show', compact('post'));
+        $posts = Post::All();
+        return view('posts.show', compact('post', 'posts'));
     }
 
     /**
@@ -70,9 +72,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**

@@ -27,10 +27,24 @@
                             <td>{{ $post->publish_date }}</td>
                             <td>{{ $post->tags }}</td>
                             <td>{{ $post->premium_content ? "Premium content" : "Free Content" }}</td>
-                            <td>
-                                <form action="{{ route('posts.show', $post->id) }}">
+                            <td class="d-flex">
+                                <form class="mr-1 ml-1" action="{{ route('posts.show', $post) }}" method="GET">
                                     <button type="submit" class="btn btn-outline-primary">
                                         <i class="bi bi-box-arrow-up-right"></i>
+                                    </button>
+                                </form>
+
+                                <form class="edit mr-1 ml-1" action="{{ route('posts.edit', $post) }}" method="GET">
+                                    <button type="submit" class="btn btn-outline-warning">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                </form>
+
+                                <form class="mr-1 ml-1" action="{{ route('posts.destroy', $post) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        <i class="bi bi-trash"></i>
                                     </button>
                                 </form>
                             </td>

@@ -49,6 +49,10 @@ table {
                 background-color: #d6e9f9;
             }
         }
+
+        .btn-outline-warning:hover {
+            color: #fff;
+        }
     }
 }
 
@@ -137,7 +141,7 @@ table {
     }
 }
 
-.create-post-container {
+.formatting-post-container {
     form {
         margin-top: 24px;
 
