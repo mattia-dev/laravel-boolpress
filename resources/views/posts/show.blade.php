@@ -33,8 +33,8 @@
             </a>
         
             <a class="d-flex" href="{{ route('posts.show', $post->id + 1) }}">
-                <div>{{ $post->id != 100 ? "Next blog post" : "" }}</div>
-                <i class="{{ $post->id != 100 ? '' : 'd-none' }} bi bi-caret-right-fill"></i>
+                <div>{{ $post->id != 101 ? "Next blog post" : "" }}</div>
+                <i class="{{ $post->id != 101 ? '' : 'd-none' }} bi bi-caret-right-fill"></i>
             </a>
         </div>
 

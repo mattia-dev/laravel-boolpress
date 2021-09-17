@@ -7,7 +7,7 @@
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
-                    @foreach($errors as $error)
+                    @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
@@ -20,31 +20,31 @@
             <div class="form-group">
                 <label for="title">Title:</label>
 
-                <input type="text" class="form-control" name="title" id="title">
+                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
             </div>
 
             <div class="form-group">
                 <label for="author">Author:</label>
 
-                <input type="text" class="form-control" name="author" id="author">
+                <input type="text" class="form-control" name="author" id="author" value="{{ old('author') }}">
             </div>
 
             <div class="form-group">
-                <label for="image-url">Image URL:</label>
+                <label for="image">Image URL:</label>
 
-                <input type="text" class="form-control" name="image-url" id="image-url">
+                <input type="text" class="form-control" name="image" id="image" value="{{ old('image') }}">
             </div>
 
             <div class="form-group">
                 <label for="body">Body:</label>
 
-                <textarea class="form-control" name="body" id="body" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="tags">Tags:</label>
 
-                <input type="text" class="form-control" name="tags" id="tags">
+                <input type="text" class="form-control" name="tags" id="tags" value="{{ old('tags') }}">
             </div>
 
             <div class="form-group d-flex align-items-center">

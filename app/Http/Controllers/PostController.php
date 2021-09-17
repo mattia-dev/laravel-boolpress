@@ -36,7 +36,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'image' => 'url',
+            'body'  => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $post = new Post();
+
+        $this->createOrEditPost($post, $data);
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -83,5 +96,17 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function createOrEditPost(Post $post, $data) {
+        $post->title = $data['title'];
+        $post->author = $data['author'];
+        $post->publish_date = now();
+        $post->image = $data['image'];
+        $post->body = $data['body'];
+        $post->tags = $data['tags'];
+        $post->views = 0;
+        $post->premium_content = key_exists('premium', $data) ? true : false;
+        $post->save();
     }
 }
