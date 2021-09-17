@@ -84,9 +84,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'image' => 'url',
+            'body'  => 'required',
+            'tags'  => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $this->createOrEditPost($post, $data);
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -95,9 +107,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        \Session::flash('flash_message','POST DELETED.');
+
+        return redirect()->route('posts.index');
     }
 
     private function createOrEditPost(Post $post, $data) {

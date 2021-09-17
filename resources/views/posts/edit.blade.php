@@ -22,31 +22,31 @@
             <div class="form-group">
                 <label for="title">Title:</label>
 
-                <input type="text" class="form-control" name="title" id="title" value="{{ $post['title'] }}">
+                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') ? old('title') : $post['title'] }}">
             </div>
 
             <div class="form-group">
                 <label for="author">Author:</label>
 
-                <input type="text" class="form-control" name="author" id="author" value="{{ $post['author'] }}">
+                <input type="text" class="form-control" name="author" id="author" value="{{ old('author') ? old('author') : $post['author'] }}">
             </div>
 
             <div class="form-group">
                 <label for="image">Image URL:</label>
 
-                <input type="text" class="form-control" name="image" id="image" value="{{ $post['image'] }}">
+                <input type="text" class="form-control" name="image" id="image" value="{{ old('image') ? old('image') : $post['image'] }}">
             </div>
 
             <div class="form-group">
                 <label for="body">Body:</label>
 
-                <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ $post['body'] }}</textarea>
+                <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body') ? old('body') : $post['body'] }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="tags">Tags:</label>
 
-                <input type="text" class="form-control" name="tags" id="tags" value="{{ $post['tags'] }}">
+                <input type="text" class="form-control" name="tags" id="tags" value="{{ old('tags') ? old('tags') : $post['tags'] }}">
             </div>
 
             <div class="form-group d-flex align-items-center">
