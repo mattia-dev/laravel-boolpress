@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container formatting-post-container">
+        @if(Auth::check())
+            <a href="{{ route('posts.index') }}" class="btn btn-outline-primary mb-4">Torna al gestionale dei post</a>
+        @endif
+        
         <h2>EDIT POST</h2>
 
         @if($errors->any())

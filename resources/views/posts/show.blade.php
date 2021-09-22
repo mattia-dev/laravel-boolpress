@@ -2,6 +2,22 @@
 
 @section('content')
     <div class="post-container container">
+        @if(Session::has('flash_message_store'))
+            <div id="deleted" class="alert alert-success" role="alert" style="position: fixed; left: 50%; transform: translate(-50%, 0)">
+                <strong>POST CREATED</strong>
+            </div>
+        @endif
+
+        @if(Session::has('flash_message_update'))
+            <div id="deleted" class="alert alert-warning" role="alert" style="position: fixed; left: 50%; transform: translate(-50%, 0)">
+                <strong>POST EDITED</strong>
+            </div>
+        @endif
+        
+        @if(Auth::check())
+            <a href="{{ route('posts.index') }}" class="btn btn-outline-primary mb-4">Torna al gestionale dei post</a>
+        @endif
+
         <img class="banner" src="{{ $post->image }}" alt="banner">
 
         @if( $post->premium_content )
@@ -14,10 +30,18 @@
 
         <div class="post-details d-flex justify-content-between">
 
-            @if($post->created_at = $post->updated_at)
-                <div class="publish-date"><i class="bi bi-calendar-check-fill"></i>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }}</div>
+            @if($post->created_at == $post->updated_at)
+                <div class="publish-date">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    
+                    <div>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }}</div>
+                </div>
             @else
-                <div class="publish-date"><i class="bi bi-calendar-check-fill"></i>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }} and updated on {{ date('d F Y', strtotime($post->updated_at)) }} at {{ date('H:i', strtotime($post->updated_at)) }}</div>
+                <div class="publish-date d-flex">
+                    <i class="bi bi-calendar-check-fill"></i>
+
+                    <div>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }}<br/>Updated on {{ date('d F Y', strtotime($post->updated_at)) }} at {{ date('H:i', strtotime($post->updated_at)) }}</div>
+                </div>
             @endif
 
             <div class="tags"><i class="bi bi-tags-fill"></i>{{ ucwords(implode(', ', explode(' ', $post->tags))) }}{{$post->premium_content ? ", Premium" : "free"}}</div>
@@ -29,18 +53,6 @@
             <img class="float-right" src="{{ $post->image }}" alt="post image">
 
             <p>{{ $post->body }}</p>
-        </div>
-
-        <div class="navigation d-flex justify-content-between">        
-            <a class="d-flex" href="{{ route('posts.show', $post->id - 1) }}">
-                <i class="{{ $post->id != 1 ? '' : 'd-none' }} bi bi-caret-left-fill"></i>
-                <div>{{ $post->id != 1 ? "Previous blog post" : "" }}</div>
-            </a>
-        
-            <a class="d-flex" href="{{ route('posts.show', $post->id + 1) }}">
-                <div>{{ $post->id != count($posts) ? "Next blog post" : "" }}</div>
-                <i class="{{ $post->id != count($posts) ? '' : 'd-none' }} bi bi-caret-right-fill"></i>
-            </a>
         </div>
 
         <div class="comment-section">

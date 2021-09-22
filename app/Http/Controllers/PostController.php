@@ -52,6 +52,8 @@ class PostController extends Controller
 
         $this->createOrEditPost($post, $data);
 
+        \Session::flash('flash_message_store','POST CREATED.');
+
         return redirect()->route('posts.show', $post);
     }
 
@@ -101,6 +103,8 @@ class PostController extends Controller
         $data = $request->all();
 
         $this->createOrEditPost($post, $data);
+
+        \Session::flash('flash_message_update','POST EDITED.');
 
         return redirect()->route('posts.show', $post);
     }

@@ -8,6 +8,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
+.btn-outline-warning:hover, .btn-outline-warning:focus {
+    color: #fff !important;
+}
 
 a.create-post {
     font-size: 26px;
@@ -101,19 +104,6 @@ table {
             font-size: 16px;
             color: $gray-900;
             text-align: justify;
-        }
-    }
-
-    .navigation {
-        a, i {
-            font-size: 18px;
-            color: #6cb2eb;
-            text-decoration: none;
-            transition: .25s;
-
-            &:hover, &:hover i {
-                color: #2176bd;
-            }
         }
     }
 

@@ -12332,6 +12332,11 @@ a.text-dark:focus {
   }
 }
 
+.btn-outline-warning:hover,
+.btn-outline-warning:focus {
+  color: #fff !important;
+}
+
 a.create-post {
   font-size: 26px;
   color: #6cb2eb;
@@ -12422,21 +12427,6 @@ table tbody .btn-outline-warning:hover {
   font-size: 16px;
   color: #212529;
   text-align: justify;
-}
-
-.post-container .navigation a,
-.post-container .navigation i {
-  font-size: 18px;
-  color: #6cb2eb;
-  text-decoration: none;
-  transition: 0.25s;
-}
-
-.post-container .navigation a:hover,
-.post-container .navigation a:hover i,
-.post-container .navigation i:hover,
-.post-container .navigation i:hover i {
-  color: #2176bd;
 }
 
 .post-container .comment-section {

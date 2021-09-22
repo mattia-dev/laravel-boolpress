@@ -1,39 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="container">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+        @if(Auth::check())
+            <a href="{{ route('posts.index') }}" class="btn btn-outline-primary mb-4">Apri il gestionale dei post</a>
+        @endif
+        
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+            @foreach($posts as $post)
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ $post->image }}" alt="Card image cap">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <p class="card-text">{{ $post->user->name }}</p>
+                            <p class="card-text">{{ $post->created_at }}</p>
+                            <p class="card-text"><strong>{{ $post->tags }}</strong></p>
                         </div>
-                    @endif
 
-                    {{ __('You are logged in!') }}
+                        <div class="card-footer">
+                            <a href="{{ route('posts.show', $post) }}" class="btn btn-outline-primary">Read</a>
+
+                            @if(Auth::check())
+                                <a href="{{ route('posts.edit', $post) }}" class="btn btn-outline-warning">Edit</a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            @endforeach
+        </div>        
     </div>
-
-    <div class="posts">
-        @foreach($allPosts as $post)
-            <div class="post">
-                <h2>{{ $post->title }}</h2>
-
-                <div class="author">by {{ $post->author }}</div>
-
-                <div class="post-content">
-                    <img src="{{ $post->post_image }}" alt="post image">
-
-                    <p>{{ $post->body }} </p>
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div>
 @endsection

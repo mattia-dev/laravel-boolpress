@@ -7,15 +7,24 @@ use App\Post;
 
 class HomeController extends Controller
 {
-    
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        $allPosts = Post::All();
-        return view('home', compact('allPosts'));
+        $posts = Post::all();
+        return view('home', compact('posts'));
     }
 }
