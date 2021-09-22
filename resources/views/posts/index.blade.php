@@ -5,7 +5,7 @@
 
     <div class="container">
         @if(Session::has('flash_message'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div id="deleted" class="alert alert-danger" role="alert">
                 <strong>POST DELETED</strong>
             </div>
         @endif
@@ -31,8 +31,8 @@
                         <tr>
                             <th scope="row">{{ $post->id }}</th>
                             <td>{{ $post->title }}</td>
-                            <td>{{ $post->author }}</td>
-                            <td>{{ $post->publish_date }}</td>
+                            <td>{{ $post->user->name }}</td>
+                            <td>{{ $post->created_at }}</td>
                             <td>{{ $post->tags }}</td>
                             <td>{{ $post->premium_content ? "Premium content" : "Free Content" }}</td>
                             <td>
@@ -49,42 +49,31 @@
                                         </button>
                                     </form>
 
-                                    <!-- <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-id='{{$post}}' data-bs-target="#myModal">
-                                        <i class="bi bi-trash"></i>
-                                    </button> -->
-                                    
-                                    <form class="mr-1 ml-1" action="{{ route('posts.destroy', $post) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal{{$post->id}}"><i class="bi bi-trash"></i></button>
 
-                                    <!-- <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                    <div class="modal fade" id="deleteModal{{$post->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">ATTENTION</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                
-                                                <div class="modal-body">
-                                                    Are you sure you want to delete this post?
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                                                    <form class="mr-1 ml-1" action="{{ route('posts.destroy', $post) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </div>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">WARNING!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                The post will be deleted. <br>
+                                                Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <form action="{{route('posts.destroy', $post)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </td>
                         </tr>

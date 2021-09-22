@@ -10,10 +10,15 @@
 
         <h1>{{ substr($post->title, 0, -1) }}</h1>
 
-        <div class="author"><i class="bi bi-pen-fill"></i>Written by {{ ucwords($post->author) }}</div>
+        <div class="author"><i class="bi bi-pen-fill"></i>Written by {{ ucwords($post->user->name) }}</div>
 
         <div class="post-details d-flex justify-content-between">
-            <div class="publish-date"><i class="bi bi-calendar-check-fill"></i>Published on {{ date('d F Y', strtotime($post->publish_date)) }} at {{ date('H:i', strtotime($post->publish_date)) }}</div>
+
+            @if($post->created_at = $post->updated_at)
+                <div class="publish-date"><i class="bi bi-calendar-check-fill"></i>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }}</div>
+            @else
+                <div class="publish-date"><i class="bi bi-calendar-check-fill"></i>Published on {{ date('d F Y', strtotime($post->created_at)) }} at {{ date('H:i', strtotime($post->created_at)) }} and updated on {{ date('d F Y', strtotime($post->updated_at)) }} at {{ date('H:i', strtotime($post->updated_at)) }}</div>
+            @endif
 
             <div class="tags"><i class="bi bi-tags-fill"></i>{{ ucwords(implode(', ', explode(' ', $post->tags))) }}{{$post->premium_content ? ", Premium" : "free"}}</div>
 

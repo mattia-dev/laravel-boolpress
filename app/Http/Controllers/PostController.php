@@ -26,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $users = User::all();
+        return view('posts.create', compact('users'));
     }
 
     /**
@@ -39,7 +40,7 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'author' => 'required',
+            'user_id' => 'required',
             'image' => 'url',
             'body'  => 'required',
             'tags'  => 'required'
@@ -60,10 +61,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
         $posts = Post::All();
+        $post->incrementViewsCount();
         return view('posts.show', compact('post', 'posts'));
     }
 
@@ -75,7 +76,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $users = User::all();
+        return view('posts.edit', compact('post', 'users'));
     }
 
     /**
@@ -87,9 +89,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // dd($request);
         $request->validate([
             'title' => 'required',
-            'author' => 'required',
+            'user_id' => 'required',
             'image' => 'url',
             'body'  => 'required',
             'tags'  => 'required'
@@ -119,12 +122,11 @@ class PostController extends Controller
 
     private function createOrEditPost(Post $post, $data) {
         $post->title = $data['title'];
-        $post->author = $data['author'];
-        $post->publish_date = now();
+        $post->user_id = $data['user_id'];
         $post->image = $data['image'];
         $post->body = $data['body'];
         $post->tags = $data['tags'];
-        $post->views = 0;
+        $post->views = $post['views'] ? $post['views'] : 0;
         $post->premium_content = key_exists('premium', $data) ? true : false;
         $post->save();
     }

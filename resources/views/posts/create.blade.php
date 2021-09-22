@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container create-post-container">
+    <div class="container formatting-post-container">
         <h2>NEW POST</h2>
 
         @if($errors->any())
@@ -24,9 +24,19 @@
             </div>
 
             <div class="form-group">
-                <label for="author">Author:</label>
-
-                <input type="text" class="form-control" name="author" id="author" value="{{ old('author') }}">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="user_id">Author</label>
+                    </div>
+                    <select class="custom-select" id="user_id" name="user_id">
+                        <option value="{{ old('user_id') ? old('user_id') : '' }}" selected>{{ old('user_id') ? $users->find(old('user_id'))->name : "Choose an author..." }}</option>
+                            @foreach($users as $user)
+                                @if($user->id != old('user_id'))
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endif
+                            @endforeach
+                    </select>
+                </div>
             </div>
 
             <div class="form-group">

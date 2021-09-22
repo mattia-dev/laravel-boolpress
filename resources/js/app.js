@@ -30,3 +30,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+setTimeout(function () {
+    $('#deleted').fadeOut('fast');
+}, 5000);
